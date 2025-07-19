@@ -1,4 +1,4 @@
 /node_modules
 .env
 /correction
-package-lock.json
+/package-lock.json
