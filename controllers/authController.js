@@ -49,7 +49,10 @@ exports.login = async (req, res) => {
 
   console.log(" ✅ User authenticated:", username);
   // TODO : Sign the JWT token with the username and JWT_SECRET
-  const token = jwt.sign({ id: user.id, username: user.username, currentRoom: user.currentRoom }, JWT_SECRET, { expiresIn: '1h' });
+// authController.js - fonction login (ou register)
+// ...
+const token = jwt.sign({ id: user.id, username: user.username, currentRoom: user.currentRoom }, process.env.JWT_SECRET, { expiresIn: '1h' });
+// ...
   // TODO : Return the token in the response in json
   res.json({ token });
 };

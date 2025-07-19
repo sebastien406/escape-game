@@ -19,21 +19,21 @@ const accessControl = require("../middleware/accessControl");
 
 // Route GET /:id
 router.get("/:id",
-    (req, res, next) => { console.log("➡️ [rooms.js] Entering GET /:id route chain."); next(); }, // <-- AJOUTEZ CE LOG
+    (req, res, next) => { console.log("➡️ [rooms.js] Entering GET /:id route chain."); next(); }, 
     auth,
-    (req, res, next) => { console.log("➡️ [rooms.js] After auth middleware."); next(); }, // <-- AJOUTEZ CE LOG
+    (req, res, next) => { console.log("➡️ [rooms.js] After auth middleware."); next(); }, 
     accessControl,
-    (req, res, next) => { console.log("➡️ [rooms.js] After accessControl middleware. Will call roomsController."); next(); }, // <-- AJOUTEZ CE LOG
+    (req, res, next) => { console.log("➡️ [rooms.js] After accessControl middleware. Will call roomsController."); next(); }, 
     roomsController.getRoom
 );
 
 // Route POST /:id/answer
 router.post("/:id/answer",
-    (req, res, next) => { console.log("➡️ [rooms.js] Entering POST /:id/answer route chain."); next(); }, // <-- AJOUTEZ CE LOG
+    (req, res, next) => { console.log("➡️ [rooms.js] Entering POST /:id/answer route chain."); next(); }, 
     auth,
-    (req, res, next) => { console.log("➡️ [rooms.js] After auth middleware (POST)."); next(); }, // <-- AJOUTEZ CE LOG
+    (req, res, next) => { console.log("➡️ [rooms.js] After auth middleware (POST)."); next(); }, 
     accessControl,
-    (req, res, next) => { console.log("➡️ [rooms.js] After accessControl middleware (POST). Will call roomsController."); next(); }, // <-- AJOUTEZ CE LOG
+    (req, res, next) => { console.log("➡️ [rooms.js] After accessControl middleware (POST). Will call roomsController."); next(); }, 
     roomsController.submitAnswer
 );
 

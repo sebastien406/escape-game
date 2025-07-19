@@ -2,6 +2,7 @@
 
 const users = []; // Base en mémoire
 let nextUserId = 1;
+
 function findUserByUsername(username) {
   return users.find(user => user.username === username);
 }
@@ -10,9 +11,14 @@ function findUserById(id) {
   return users.find(user => user.id === id);
 }
 
-function createUser(user) {
-  users.push(user);
-  return user;
+function createUser(userData) { 
+    const newUser = {
+        id: nextUserId++, 
+        username: userData.username,
+        password: userData.password,
+        currentRoom: userData.currentRoom !== undefined ? userData.currentRoom : 1 };
+    users.push(newUser);
+    return newUser; 
 }
 
 function updateUserRoom(userId, newRoomId) {
